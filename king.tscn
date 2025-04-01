@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://d30mapeh5cjlh"]
+
+[ext_resource type="Texture2D" uid="uid://dhaorg0noc2ol" path="res://images/pixil-frame-0 (28).png" id="1_0fxkx"]
+[ext_resource type="Script" path="res://king.gd" id="1_uo3sc"]
+[ext_resource type="Texture2D" uid="uid://bwn1sseoqw5km" path="res://images/kingIdle.png" id="2_d73c1"]
+[ext_resource type="AudioStream" uid="uid://c3cbx0ho21wy2" path="res://surprise.mp3" id="4_sfkmp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giwnc"]
+atlas = ExtResource("2_d73c1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vhxq"]
+atlas = ExtResource("2_d73c1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lmke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giwnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vhxq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce1lf"]
+size = Vector2(63, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xtm5"]
+size = Vector2(679.5, 250)
+
+[node name="King" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_uo3sc")
+
+[node name="crown" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-5, -58)
+scale = Vector2(2.35156, 2.35156)
+texture = ExtResource("1_0fxkx")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6, 12)
+scale = Vector2(4.03125, 4.03125)
+sprite_frames = SubResource("SpriteFrames_4lmke")
+frame_progress = 0.497656
+speed_scale = 1.12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, 9)
+shape = SubResource("RectangleShape2D_ce1lf")
+
+[node name="Sight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+position = Vector2(-385.25, 8)
+shape = SubResource("RectangleShape2D_3xtm5")
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sfkmp")
+
+[connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]

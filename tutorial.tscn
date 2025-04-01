@@ -1,0 +1,184 @@
+[gd_scene load_steps=12 format=3 uid="uid://bh1e01bf0aufu"]
+
+[ext_resource type="Script" path="res://tutorial.gd" id="1_nix7d"]
+[ext_resource type="Texture2D" uid="uid://d1pm8eygyva7c" path="res://icon.svg" id="1_nyhvf"]
+[ext_resource type="FontFile" uid="uid://ce5cdq13xtfrh" path="res://images/dogicapixelbold.otf" id="2_klhv1"]
+[ext_resource type="FontFile" uid="uid://djo3h61omkyru" path="res://images/dogicapixel.otf" id="3_bxhx1"]
+[ext_resource type="Texture2D" uid="uid://2bv8rphw013e" path="res://images/pixil-frame-0 (17).png" id="4_rgvc7"]
+[ext_resource type="Texture2D" uid="uid://dkj5hemorg81y" path="res://images/pixil-frame-0 (29).png" id="5_6tr4t"]
+[ext_resource type="Texture2D" uid="uid://dhaorg0noc2ol" path="res://images/pixil-frame-0 (28).png" id="6_uxpti"]
+[ext_resource type="Texture2D" uid="uid://dmtkoni2tcba" path="res://images/pixil-frame-0 (25).png" id="7_k1cok"]
+[ext_resource type="Texture2D" uid="uid://cu81aomdvlv68" path="res://images/pixil-frame-0 (26).png" id="8_lf5hf"]
+[ext_resource type="Texture2D" uid="uid://dt4ljvowm0p7x" path="res://images/pixil-frame-0 (27).png" id="9_a7dtp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44h4x"]
+bg_color = Color(0.238638, 0.535839, 0.562371, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_nix7d")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+modulate = Color(0.00113024, 0.000680882, 0.21376, 1)
+z_index = -10
+position = Vector2(965, 538)
+scale = Vector2(969.455, 293.471)
+texture = ExtResource("1_nyhvf")
+region_enabled = true
+region_rect = Rect2(62.5521, 66.9609, 2.25134, 4.00237)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 452.0
+offset_top = 19.0
+offset_right = 1985.0
+offset_bottom = 199.0
+theme_override_colors/default_color = Color(0.833013, 0.331421, 0.365653, 1)
+theme_override_fonts/normal_font = ExtResource("2_klhv1")
+theme_override_font_sizes/normal_font_size = 85
+text = "Mission Brief"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 28.0
+offset_top = 175.0
+offset_right = 715.0
+offset_bottom = 258.0
+theme_override_colors/default_color = Color(0.833013, 0.331421, 0.365653, 1)
+theme_override_fonts/normal_font = ExtResource("2_klhv1")
+theme_override_font_sizes/normal_font_size = 40
+text = "The Mission"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_left = 23.0
+offset_top = 508.0
+offset_right = 710.0
+offset_bottom = 591.0
+theme_override_colors/default_color = Color(0.833013, 0.331421, 0.365653, 1)
+theme_override_fonts/normal_font = ExtResource("2_klhv1")
+theme_override_font_sizes/normal_font_size = 40
+text = "The Weapon"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+offset_left = 1022.0
+offset_top = 168.0
+offset_right = 1709.0
+offset_bottom = 251.0
+theme_override_colors/default_color = Color(0.833013, 0.331421, 0.365653, 1)
+theme_override_fonts/normal_font = ExtResource("2_klhv1")
+theme_override_font_sizes/normal_font_size = 45
+text = "The Stealth
+"
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="."]
+offset_left = 999.0
+offset_top = 527.0
+offset_right = 1686.0
+offset_bottom = 610.0
+theme_override_colors/default_color = Color(0.833013, 0.331421, 0.365653, 1)
+theme_override_fonts/normal_font = ExtResource("2_klhv1")
+theme_override_font_sizes/normal_font_size = 45
+text = "The Warning
+"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = 27.0
+offset_top = 265.0
+offset_right = 615.0
+offset_bottom = 482.0
+theme_override_colors/default_color = Color(0.729225, 0.833957, 0.937112, 1)
+theme_override_constants/line_separation = 17
+theme_override_fonts/normal_font = ExtResource("3_bxhx1")
+theme_override_font_sizes/normal_font_size = 22
+text = "It is your objective to infiltrate the castle and assassinate the King. Each room in the castle contains guards you must kill to proceed to the next."
+scroll_active = false
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+offset_left = 33.0
+offset_top = 626.0
+offset_right = 711.0
+offset_bottom = 929.0
+theme_override_colors/default_color = Color(0.729225, 0.833957, 0.937112, 1)
+theme_override_constants/line_separation = 17
+theme_override_fonts/normal_font = ExtResource("3_bxhx1")
+theme_override_font_sizes/normal_font_size = 22
+text = "You armed with a deadly dagger that automatically elimnates enemies upon contact without having to do anything. You can throw this weaopon using the Spacebar, but it's durability limits how many times you can throw before breaking. "
+scroll_active = false
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+offset_left = 1029.0
+offset_top = 261.0
+offset_right = 1707.0
+offset_bottom = 564.0
+theme_override_colors/default_color = Color(0.729225, 0.833957, 0.937112, 1)
+theme_override_constants/line_separation = 17
+theme_override_fonts/normal_font = ExtResource("3_bxhx1")
+theme_override_font_sizes/normal_font_size = 22
+text = "Stealth is of utmost importance. If seen by the guards in the light you will get caught. So, try taking out the torches with the dagger first before engaging."
+scroll_active = false
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="."]
+offset_left = 1022.0
+offset_top = 616.0
+offset_right = 1632.0
+offset_bottom = 919.0
+theme_override_colors/default_color = Color(0.729225, 0.833957, 0.937112, 1)
+theme_override_constants/line_separation = 17
+theme_override_fonts/normal_font = ExtResource("3_bxhx1")
+theme_override_font_sizes/normal_font_size = 22
+text = "Legend has it the king has tamed some deadly beasts that guard him. Beware!"
+scroll_active = false
+
+[node name="Pixil-frame-0(17)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(819, 732)
+scale = Vector2(9.8125, 9.8125)
+texture = ExtResource("4_rgvc7")
+
+[node name="Pixil-frame-0(29)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(709, 346)
+scale = Vector2(6.29687, 6.29687)
+texture = ExtResource("5_6tr4t")
+
+[node name="Pixil-frame-0(28)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(709, 231)
+scale = Vector2(3.82813, 3.82813)
+texture = ExtResource("6_uxpti")
+
+[node name="Pixil-frame-0(25)" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(1799, 320)
+scale = Vector2(5.40625, 5.40625)
+texture = ExtResource("7_k1cok")
+
+[node name="Pixil-frame-0(26)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1791, 220)
+scale = Vector2(4.45312, 4.45312)
+texture = ExtResource("8_lf5hf")
+
+[node name="Pixil-frame-0(27)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1789, 671)
+scale = Vector2(6.28125, 6.28125)
+texture = ExtResource("9_a7dtp")
+
+[node name="HowButton2" type="Button" parent="."]
+offset_left = 1105.0
+offset_top = 825.0
+offset_right = 1499.0
+offset_bottom = 955.0
+theme_override_fonts/font = ExtResource("2_klhv1")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_44h4x")
+text = "Back"
+
+[connection signal="pressed" from="HowButton2" to="." method="_on_how_button_2_pressed"]

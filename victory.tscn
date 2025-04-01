@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://cwxpuk7xv4iey"]
+
+[ext_resource type="Script" path="res://victory.gd" id="1_nghdw"]
+[ext_resource type="Texture2D" uid="uid://d1pm8eygyva7c" path="res://icon.svg" id="2_ht3wq"]
+[ext_resource type="FontFile" uid="uid://ce5cdq13xtfrh" path="res://images/dogicapixelbold.otf" id="3_scmnb"]
+[ext_resource type="Texture2D" uid="uid://bbmeaw1bf5bc4" path="res://images/ninjaIdleFront.png" id="4_ij6gg"]
+[ext_resource type="AudioStream" uid="uid://c2esfmhep54bx" path="res://violin-win-5-185128.mp3" id="5_2snhw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmcfh"]
+atlas = ExtResource("4_ij6gg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf7ey"]
+atlas = ExtResource("4_ij6gg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jgo5"]
+atlas = ExtResource("4_ij6gg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyomd"]
+atlas = ExtResource("4_ij6gg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xfs0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmcfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf7ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jgo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyomd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65xyd"]
+bg_color = Color(0.238638, 0.535839, 0.562371, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Victory" type="Node2D"]
+script = ExtResource("1_nghdw")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+modulate = Color(0.00113024, 0.000680882, 0.21376, 1)
+z_index = -10
+position = Vector2(965, 538)
+scale = Vector2(969.455, 293.471)
+texture = ExtResource("2_ht3wq")
+region_enabled = true
+region_rect = Rect2(62.5521, 66.9609, 2.25134, 4.00237)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 95.0
+offset_top = 358.0
+offset_right = 2092.0
+offset_bottom = 534.0
+theme_override_colors/default_color = Color(0.833013, 0.331421, 0.365653, 1)
+theme_override_fonts/normal_font = ExtResource("3_scmnb")
+theme_override_font_sizes/normal_font_size = 90
+text = "Mission Accomplished!"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1674, 288)
+scale = Vector2(5.84375, 5.84375)
+sprite_frames = SubResource("SpriteFrames_1xfs0")
+frame_progress = 0.788715
+speed_scale = 2.0
+
+[node name="HowButton" type="Button" parent="."]
+offset_left = 716.0
+offset_top = 657.0
+offset_right = 1110.0
+offset_bottom = 785.0
+theme_override_fonts/font = ExtResource("3_scmnb")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_65xyd")
+text = "Home"
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2snhw")
+
+[connection signal="pressed" from="HowButton" to="." method="_on_how_button_pressed"]
