@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://hyuq8f5ur6ox"]
+
+[ext_resource type="AudioStream" uid="uid://7jpmxw8gtv6d" path="res://images/midnight-forest-184304.mp3" id="1_lu4jv"]
+
+[node name="BGMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_lu4jv")
+autoplay = true

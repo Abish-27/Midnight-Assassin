@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=3 uid="uid://cb1187fu0dc62"]
+
+[ext_resource type="Script" path="res://dagger.gd" id="1_0xxss"]
+[ext_resource type="Texture2D" uid="uid://nnigtk427qbn" path="res://images/daggerKill.png" id="2_bpxdn"]
+[ext_resource type="AudioStream" uid="uid://cyrm5jt2k1304" path="res://knife.mp3" id="3_jyarr"]
+
+[sub_resource type="Gradient" id="Gradient_xoef8"]
+offsets = PackedFloat32Array(0.340909, 0.659091)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_casxh"]
+gradient = SubResource("Gradient_xoef8")
+fill = 1
+fill_from = Vector2(0.483945, 0.472477)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuqd5"]
+atlas = ExtResource("2_bpxdn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1fks"]
+atlas = ExtResource("2_bpxdn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pde0a"]
+atlas = ExtResource("2_bpxdn")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qlm7"]
+atlas = ExtResource("2_bpxdn")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3wd0"]
+atlas = ExtResource("2_bpxdn")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptdiq"]
+atlas = ExtResource("2_bpxdn")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_otyoc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuqd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1fks")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_pde0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qlm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3wd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptdiq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b2ld"]
+size = Vector2(16.9973, 56.0089)
+
+[node name="Dagger" type="Node2D"]
+texture_filter = 1
+rotation = 0.882024
+script = ExtResource("1_0xxss")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.867617, 0.445195, 0.433327, 1)
+texture = SubResource("GradientTexture2D_casxh")
+
+[node name="DaggerSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(3, 12)
+rotation = -0.120428
+scale = Vector2(2.559, 2.559)
+sprite_frames = SubResource("SpriteFrames_otyoc")
+frame = 1
+frame_progress = 0.821867
+
+[node name="Area2D" type="Area2D" parent="DaggerSprite"]
+unique_name_in_owner = true
+position = Vector2(-1.73175, -3.71754)
+rotation = 0.827005
+scale = Vector2(0.390778, 0.390778)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DaggerSprite/Area2D"]
+position = Vector2(1.58878, 2.97282)
+shape = SubResource("RectangleShape2D_0b2ld")
+
+[node name="killTime" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="knifeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jyarr")
+
+[connection signal="body_entered" from="DaggerSprite/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="killTime" to="." method="_on_kill_time_timeout"]

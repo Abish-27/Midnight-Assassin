@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3wkinayey55a"]
+
+[ext_resource type="Texture2D" uid="uid://d1pm8eygyva7c" path="res://icon.svg" id="1_42gdk"]
+[ext_resource type="Script" path="res://game_over.gd" id="1_heoax"]
+[ext_resource type="FontFile" uid="uid://ce5cdq13xtfrh" path="res://images/dogicapixelbold.otf" id="3_pwmso"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_440mi"]
+bg_color = Color(0.212102, 0.691109, 0.565944, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prk76"]
+bg_color = Color(0.238638, 0.535839, 0.562371, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_heoax")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.0208135, 0.107954, 0.112629, 1)
+position = Vector2(915, 512.5)
+scale = Vector2(1888, 371.667)
+texture = ExtResource("1_42gdk")
+region_enabled = true
+region_rect = Rect2(63.1324, 67.491, 1.08425, 3.38829)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 191.0
+offset_top = 75.0
+offset_right = 1777.0
+offset_bottom = 382.0
+theme_override_colors/default_color = Color(0.922717, 0.230069, 0.388944, 1)
+theme_override_fonts/normal_font = ExtResource("3_pwmso")
+theme_override_font_sizes/normal_font_size = 120
+text = "Mission Failed"
+scroll_active = false
+
+[node name="Button" type="Button" parent="."]
+offset_left = 709.0
+offset_top = 354.0
+offset_right = 1081.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("3_pwmso")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_440mi")
+text = "Try Again"
+
+[node name="Home" type="Button" parent="."]
+offset_left = 712.0
+offset_top = 563.0
+offset_right = 1080.0
+offset_bottom = 691.0
+theme_override_fonts/font = ExtResource("3_pwmso")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_prk76")
+text = "Home
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7w65uh8p3nvm"]
+
+[ext_resource type="Script" path="res://flame.gd" id="1_spt3v"]
+[ext_resource type="Texture2D" uid="uid://dmtkoni2tcba" path="res://images/pixil-frame-0 (25).png" id="3_pekx3"]
+[ext_resource type="AudioStream" uid="uid://svfyksikn4hl" path="res://cig_extinguish-89851.mp3" id="4_0pxjd"]
+[ext_resource type="Texture2D" uid="uid://cdaw2g0f0b7b5" path="res://images/fire.png" id="4_4p8gc"]
+
+[sub_resource type="Gradient" id="Gradient_uy0dh"]
+offsets = PackedFloat32Array(0, 0.13961, 0.155844, 0.74026)
+colors = PackedColorArray(0.831169, 0.831169, 0.831169, 1, 0.973254, 0.973254, 0.973254, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hwep0"]
+gradient = SubResource("Gradient_uy0dh")
+fill = 1
+fill_from = Vector2(0.497706, 0.493119)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pglbk"]
+radius = 32.2025
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rp7gi"]
+radius = 280.007
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfdgr"]
+atlas = ExtResource("4_4p8gc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aaiw"]
+atlas = ExtResource("4_4p8gc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1usbf"]
+atlas = ExtResource("4_4p8gc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4p8fx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfdgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aaiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1usbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aaiw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Torch" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_spt3v")
+
+[node name="Light" type="PointLight2D" parent="."]
+position = Vector2(3, -54)
+scale = Vector2(10.3984, 10.3984)
+color = Color(0.648355, 0.920814, 0.885922, 1)
+texture = SubResource("GradientTexture2D_hwep0")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -60)
+shape = SubResource("CircleShape2D_pglbk")
+
+[node name="LightRadius" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightRadius"]
+position = Vector2(3, -57)
+shape = SubResource("CircleShape2D_rp7gi")
+
+[node name="Pixil-frame-0(25)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(4, -4)
+scale = Vector2(3.00781, 3.00781)
+texture = ExtResource("3_pekx3")
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -54)
+scale = Vector2(2.375, 2.3125)
+sprite_frames = SubResource("SpriteFrames_4p8fx")
+frame_progress = 0.253897
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0pxjd")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

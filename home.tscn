@@ -1,0 +1,217 @@
+[gd_scene load_steps=18 format=3 uid="uid://yic3k4q32xfg"]
+
+[ext_resource type="Texture2D" uid="uid://d1pm8eygyva7c" path="res://icon.svg" id="1_ktkcq"]
+[ext_resource type="Script" path="res://home.gd" id="1_svmeu"]
+[ext_resource type="FontFile" uid="uid://ce5cdq13xtfrh" path="res://images/dogicapixelbold.otf" id="2_iftq7"]
+[ext_resource type="Texture2D" uid="uid://ch88hidekfl21" path="res://images/pixil-frame-0 (21).png" id="4_kcscg"]
+[ext_resource type="Texture2D" uid="uid://2bv8rphw013e" path="res://images/pixil-frame-0 (17).png" id="5_c2ic0"]
+[ext_resource type="Texture2D" uid="uid://dmtkoni2tcba" path="res://images/pixil-frame-0 (25).png" id="7_0mymq"]
+[ext_resource type="Texture2D" uid="uid://cufaqylr6a2fb" path="res://images/ninjaBackIdle.png" id="8_skoie"]
+[ext_resource type="Texture2D" uid="uid://cdaw2g0f0b7b5" path="res://images/fire.png" id="8_w07cg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqslf"]
+bg_color = Color(0.238638, 0.535839, 0.562371, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjx54"]
+atlas = ExtResource("8_w07cg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eakak"]
+atlas = ExtResource("8_w07cg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guput"]
+atlas = ExtResource("8_w07cg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ootg3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjx54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eakak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guput")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eakak")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_upi7q"]
+offsets = PackedFloat32Array(0.253247, 0.805195)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o4rdc"]
+gradient = SubResource("Gradient_upi7q")
+fill = 1
+fill_from = Vector2(0.522936, 0.493119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcqn1"]
+atlas = ExtResource("8_skoie")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3il5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcqn1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Home" type="Node2D"]
+script = ExtResource("1_svmeu")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.000952219, 0.000573911, 0.195242, 1)
+z_index = -10
+position = Vector2(1009, 518)
+scale = Vector2(969.455, 293.471)
+texture = ExtResource("1_ktkcq")
+region_enabled = true
+region_rect = Rect2(62.5521, 66.9609, 2.25134, 4.00237)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 222.0
+offset_top = 56.0
+offset_right = 1721.0
+offset_bottom = 232.0
+theme_override_colors/default_color = Color(0.833013, 0.331421, 0.365653, 1)
+theme_override_fonts/normal_font = ExtResource("2_iftq7")
+theme_override_font_sizes/normal_font_size = 100
+text = "Midnight Assasin"
+
+[node name="HowButton" type="Button" parent="."]
+offset_left = 147.0
+offset_top = 392.0
+offset_right = 541.0
+offset_bottom = 520.0
+theme_override_fonts/font = ExtResource("2_iftq7")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqslf")
+text = "How to Play"
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 743.0
+offset_top = 676.0
+offset_right = 1177.0
+offset_bottom = 804.0
+theme_override_fonts/font = ExtResource("2_iftq7")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqslf")
+text = "Play Mission"
+
+[node name="CreditsButton" type="Button" parent="."]
+offset_left = 1365.0
+offset_top = 405.0
+offset_right = 1799.0
+offset_bottom = 533.0
+theme_override_fonts/font = ExtResource("2_iftq7")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqslf")
+text = "Credits"
+
+[node name="Pixil-frame-0(21)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1564, 334)
+scale = Vector2(4.375, 4.375)
+texture = ExtResource("4_kcscg")
+
+[node name="Pixil-frame-0(17)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(305, 390)
+rotation = 1.91573
+scale = Vector2(4.625, 4.625)
+texture = ExtResource("5_c2ic0")
+
+[node name="Pixil-frame-0(25)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1795, 137)
+scale = Vector2(2.90625, 2.90625)
+texture = ExtResource("7_0mymq")
+
+[node name="Pixil-frame-0(25)2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(120, 127)
+scale = Vector2(2.90625, 2.90625)
+texture = ExtResource("7_0mymq")
+
+[node name="Torch1" type="AnimatedSprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(116, 77)
+scale = Vector2(2.45312, 2.32812)
+sprite_frames = SubResource("SpriteFrames_ootg3")
+
+[node name="Torch2" type="AnimatedSprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(1793, 86)
+scale = Vector2(2.45312, 2.32812)
+sprite_frames = SubResource("SpriteFrames_ootg3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(119, 76)
+scale = Vector2(9.875, 9.875)
+color = Color(0.47451, 1, 1, 1)
+texture = SubResource("GradientTexture2D_o4rdc")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(1797, 90)
+scale = Vector2(9.875, 9.875)
+color = Color(0.47451, 1, 1, 1)
+texture = SubResource("GradientTexture2D_o4rdc")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.357191, 0.357191, 0.357191, 1)
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(346, 466)
+scale = Vector2(5.85938, 5.85938)
+color = Color(0.566023, 0.780616, 0.992989, 1)
+texture = SubResource("GradientTexture2D_o4rdc")
+
+[node name="PointLight2D6" type="PointLight2D" parent="."]
+position = Vector2(922.5, 94.25)
+scale = Vector2(19.7344, 4.86719)
+color = Color(0.998527, 0.548968, 0.493279, 1)
+texture = SubResource("GradientTexture2D_o4rdc")
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(958, 699)
+scale = Vector2(5.85938, 5.85938)
+color = Color(0.706848, 0.843071, 0.944748, 1)
+texture = SubResource("GradientTexture2D_o4rdc")
+
+[node name="PointLight2D5" type="PointLight2D" parent="."]
+position = Vector2(1572, 431)
+scale = Vector2(5.85938, 5.85938)
+color = Color(0.807992, 0.892842, 0.987705, 1)
+texture = SubResource("GradientTexture2D_o4rdc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(962, 617)
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_t3il5")
+
+[connection signal="pressed" from="HowButton" to="." method="_on_how_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
